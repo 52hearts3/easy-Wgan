@@ -90,7 +90,7 @@ from PIL import Image
 
 
 tf=transforms.Compose([
-    # transforms.Lambda(convert_to_rgb),
+    #transforms.Lambda(convert_to_rgb),
     transforms.Resize((224,224)),
     transforms.RandomRotation(15),
     transforms.ToTensor(),
@@ -111,7 +111,7 @@ import matplotlib.pyplot as plt
 def show_generated_images(epoch, generator, num_images=5):
     z = torch.randn(num_images, 100).cuda()
     fake_images = generator(z).cpu().detach()
-    #fake_images = (fake_images + 1) / 2
+    fake_images = (fake_images + 1) / 2   # 将图像从 [-1, 1] 转换到 [0, 1]
 
     fig, axes = plt.subplots(1, num_images, figsize=(15, 3))
     for i in range(num_images):

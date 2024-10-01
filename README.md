@@ -1,5 +1,6 @@
 # easy-wgan
-#using pytorch 2.0+ and mayplotlib
+using pytorch 2.0+ and mayplotlib
+The discriminator in WGAN is different from that in GAN. The sigmoid function should not be added to the last layer of the discriminator; otherwise, the g_loss will approach -1 in the first batch, making it impossible to update the gradient.
 # WGAN with Gradient Penalty
 This repository contains an implementation of a Wasserstein Generative Adversarial Network (WGAN) with Gradient Penalty (GP) using PyTorch. The model is trained on the CIFAR-10 dataset.
 Model Architecture
